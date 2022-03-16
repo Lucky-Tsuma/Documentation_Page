@@ -1,0 +1,71 @@
+header {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 24px;
+}
+
+h2 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+}
+
+body {
+   font-family: 'Open Sans', sans-serif; 
+}
+
+#main-doc {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#navbar {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    border-bottom: 1px solid hsl(120,1%,75%);
+}
+
+.main-heading {
+    align-self: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+section {
+    margin-top: 20px;
+    padding: 5px;
+}
+
+ol ul {
+    overflow: hidden;
+}
+
+code {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: hsl(225, 10%, 71%);
+}
+
+@media(min-width: 904px) {
+    #main-doc {
+        flex-direction: row;
+    }
+    #navbar {
+        float: left;
+        width: 18vw;
+        position: fixed;
+        height: 100vh;
+        margin-right: 10px;
+        padding-left: 0px;
+        padding-right: 5px;
+        border-right: 1px solid hsl(120,1%,75%);
+    }
+
+    .div-sections {
+        margin-left: 19vw;
+    }
+}

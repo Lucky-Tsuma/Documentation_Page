@@ -5,9 +5,479 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=PT+Serif&family=Playfair+Display&family=Ubuntu:wght@300&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+    <main id="main-doc">
+        <nav id="navbar">
+            <header class="main-heading">Git Documentation</header>
+            <p><a class="nav-link" href="#Introduction_to_Git">Introduction to Git</a></p>
+            <p><a class="nav-link" href="#Importance_of_Git">Importance of Git</a></p>
+            <p><a class="nav-link" href="#Git_and_Github">Git and Github</a></p>
+            <p><a class="nav-link" href="#DVCS_Terminologies">DVCS Terminologies</a></p>
+            <p><a class="nav-link" href="#Basic_Git_Commands">Basic Git Commands</a></p>
+        </nav>
+
+        <div class="div-sections">
+            <section class="main-section" id="Introduction_to_Git">
+                <header>Introduction to Git</header>
+                <p>Git is a <b>distributed version control system(DVCS).</b> Version control, also known as source control, is the
+                    practice of tracking and managing changes to software code. Version control systems are software tools that help
+                    software teams manage changes to source code over time.Distributed version control is a form of version control
+                    in which the complete codebase, including its full history, is
+                    mirrored on every developer's computer.
+                    <br />
+                    Git does not rely on any central server and that is why you can perform many operations when you are offline.
+                    You can commit changes, create branches, view logs(we will cover those terms shortly) and perform other
+                    operations while offline. You require a network connection only to publish your changes and take the latest
+                    changes from the remote repository(also to be covered shortly).
+                    <br />
+                    It uses SHA1 to name and identify objects within its database. Every file and commit is check-summed and
+                    retrieved by its checksum at the time of checkout.
+                </p>
+            </section>
+
+            <section class="main-section" id="Importance_of_Git">
+                <header>Importance of Git</header>
+                <p>The use of git is very important and the following points help to illustrate why:
+                <ol>
+                    <li>
+                        <b>Backup: </b>Git helps you to maintain the backup of your source code.
+                    </li>
+                    <li>
+                        <b>Collaboration: </b>Git helps you to collaboratively work with N number of developers.
+                    </li>
+                    <li>
+                        <b>Easy code deployment: </b>Git helps you to deploy your source code on server with just one command.
+                    </li>
+                    <li>
+                        <b>History: </b>Git helps you to view/rebase the project history. You can find out who changed particular
+                        file and which lines are changed.
+                    </li>
+                    <li>
+                        <b>Branching and merging: </b>Branching helps to create and integrate new features in existing project
+                        without affecting the working code. (Only if you follow proper git flow).
+                    </li>
+                    <li>
+                        <b>Cloud Storage: </b>Git is supported by Github which is cloud storage for your code base. Github supports
+                        both public and private repositories.
+                    </li>
+                    <li>
+                        <b>Speed: </b>Git is faster than other version controlling systems.
+                    </li>
+                    <li>
+                        <b>Time travelling: </b>You can revisit a commit that you did sometime ago and correct it using interactive
+                        rebase.
+                    </li>
+                </ol>
+                </p>
+            </section>
+
+            <section class="main-section" id="Git_and_Github">
+                <header>Git and Github</header>
+                <p>There is a common misconception that git and github are one and the same thing. It is Important that we clear
+                    this confusion before going ahead with the documentation.
+                    <br />
+                    Git and github perform different functions and serve different purposes. The two are not even owned by the same
+                    company. Git is an open source tool maintained by the Linux Foundation. Github, by contrast is owned by
+                    microsoft.
+                    <br />
+                    Git is a free, open-source software distributed version control system designed to manage all source code
+                    history. It can keep a history of commits, can reverse changes, and lets developers share code. Each developer
+                    must have git installed on his or her local device to collaborate.
+                    <br />
+                    GitHub, on the other hand, is a web-based hosting service for git repositories. It offers all of Git’s
+                    distributed version control system source code management and has some additional features. This includes
+                    collaboration functionality like project management, support ticket management, and bug tracking. With GitHub,
+                    developers can share their repositories, access other developers’ repositories, and store remote copies of
+                    repositories to serve as backups.
+                </p>
+            </section>
+
+            <section class="main-section" id="DVCS_Terminologies">
+                <header>DVCS Terminologies</header>
+                <h2>Local Repository</h2>
+                <p>Git provides a private workspace as a working copy. Developers make changes in their private workspace and after commit, these changes become part of the repository.</p>
+
+                <h2>Working directory and staging area/index</h2>
+                <p>The working directory is the place where the files are checked out.
+                <br />
+                Whenever you commit an operation, git looks for the files in the staging area. Only those files present in the staging area are considered for commit and not all the modified files. 
+                <br /> 
+                Thus this is the basic git workflow: 
+                <ul>
+                    <li>Step 1: modify a file from the working directory</li>
+                    <li>Step 2: you add these files to the staging area</li>
+                    <li>Step 2: you perform a commit operation that moves the files from the staging area. After push operation, it stores the changes permanently to the git  repository</li>
+                </ul>
+
+                <h2>Blobs</h2>
+                <p>Blob - Binary Large Object. Each version of a file is represented by a blob. A blob holds the file data but does not contain any metadata about the file. It is a binary file and in git database.</p>
+                </p>
+
+                <h2>Trees</h2>
+                <p>An object which represents a directory. Holds blobs as well as other sub-directories.</p>
+
+                <h2>Commits</h2>
+                <p>A commit holds the current state of the repository. A commit is also named by SHA1 hash.</p>
+
+                <h2>Branches</h2>
+                <p>Branches are used to create another line of development. By default, git has a master branch. Usually a branch is created to work on a new feature. Once a feature is completed, it is merged back with the master branch and we delete the branch.</p>
+
+                <h2>Tags</h2>
+                <p>Tag asssigns a meaningful name with a specific version in the repository. Tags are similar to branches, but the difference is that tags are immutable.
+                <br />
+                Once a tag is created for a particular commit, even if you create a new commit, it will not be updated. Usually, developers create tags for product releases.
+                </p>
+
+                <h2>Clone</h2> 
+                <p>Creates an instance of the repository.</p>
+
+                <h2>Pull</h2>
+                <p>Pull operations copies the changes from a remote repository instance to a local one.</p>
+
+                <h2>Push</h2>
+                <p>Push operation copies changes from a local repository to a remote one. This is used to store the changes permanently into the git repository.</p>
+
+                <h2>HEAD</h2>
+                <P>HEAD is a pointer, which always points to the latest commit in the branch. Whenever you make a commit, HEAD is updated with the latest commit.
+                <br />
+                The heads of the branches are stored in <b>.git/refs/heads </b> directory.
+                </P>
+
+                <h2>Revision</h2>
+                <p>Revision represents the version of the source code. Revisions in git are represented by commits. Commits are identified by SHA1 secure hashes.</p>
+
+                <h2>URL</h2>
+                <p>Represents the location of the git repository. Git url is stored in config file.</p>
+            </section>
+
+            <section class="main-section" id="Basic_Git_Commands">
+                <header>Basic Git Commands</header>
+                <ol>
+                    <li>
+                        <b>git init: </b> Creates a new local git repository.
+                        <br /> <br />
+                        <code>
+                            git init
+                        </code>
+                        <br /><br />
+                        Alternatively, you can create a new repository within a new directory by specifying the project name.
+                        <br /> <br />
+                        <code>
+                            git init [project name]
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git clone: </b> Used to copy a repository. <br /> From a remote server.
+                        <br /> <br />
+                        <code>
+                            git clone username@host:/path/to/repository
+                        </code>
+                        <br /><br />
+                        From a local repository
+                        <br /> <br />
+                        <code>
+                            git clone /path/to/repository
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git commit: </b> Creates a snapshot of the changes and saves it to the git directory.
+                        <br /> <br />
+                        <code>
+                            git commit -m "message to go with commit"
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git config: </b> Used to set user specific configuration values e.g email, username etc
+                        <br /> <br />
+                        <code>
+                            git config --global user.email youremail@sm.com
+                        </code>
+                        <br /><br />
+                        <code>
+                            git config --global user.name 'username'
+                        </code>
+                        <br /><br />
+                        The global flag tells git that you are going to use that email for all local repositories. To use different emails for different repositories, use the --local flag.
+                    </li>
+
+                    <li>
+                        <b>git status: </b> displays the list of changed files together with the files that are yet to be staged/commited.
+                        <br /> <br />
+                        <code>
+                            git status
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git push: </b> sends local commits to whatever branch we specify of the remote repository.
+                        <br /> <br />
+                        <code>
+                            git push origin [branch name]
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git checkout: </b> Creates branches and helps you navigate between them. To create a branch and automatically switch to it: 
+                        <br /> <br />
+                        <code>
+                            git checkout -b [branch name]
+                        </code>
+                        <br /><br />
+                        To switch from one branch to another
+                        <br /><br />
+                        <code>
+                            git checkout [branch name]
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git remote: </b> Lets you view all remote repositories. To list all connections, along with url. 
+                        <br /> <br />
+                        <code>
+                            git remote -v
+                        </code>
+                        <br /><br />
+                        To connect the local repository to a remote server.
+                        <br /><br />
+                        <code>
+                            git remote add origin [host of remoteURL]
+                        </code>
+                        <br /><br />
+                        Delete a connection to a specified remote repository.
+                        <br /><br />
+                        <code>
+                            git remote rm [name of the repository]
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git branch: </b> List, create or delete branches. To list all branches in the repository: 
+                        <br /> <br />
+                        <code>
+                            git branch
+                        </code>
+                        <br /><br />
+                        To delete a branch: 
+                        <br /><br />
+                        <code>
+                            git branch -d [branch name]
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git pull: </b> merges all the changes in the remote repository to the local working directory: 
+                        <br /> <br />
+                        <code>
+                            git pull origin [branch name]
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git merge: </b> merges a branch into the active one: 
+                        <br /> <br />
+                        <code>
+                            git merge [branch name]
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git diff: </b> Lists down conflicts. To view conflicts against the base file 
+                        <br /> <br />
+                        <code>
+                            git diff --base [file name]
+                        </code>
+                        <br /><br />
+                        To view conflicts between branches before merging them.
+                        <br /><br />
+                        <code>
+                            git diff [source branch] [target branch]
+                        </code>
+                        <br /><br />
+                        List down all present conflicts.
+                        <br /><br />
+                        <code>
+                            git diff
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git tag: </b> marks specific commits. Developers use it to mark release points eg v1.0 and v2.0 
+                        <br /> <br />
+                        <code>
+                            git tag [insert-commitID-here]
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git log: </b> used to see the repository's history by listing certain commit's details.
+                        <br /> <br />
+                        <code>
+                            git log
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git reset: </b> resets the index and the working directory to the last git commit's state.
+                        <br /> <br />
+                        <code>
+                            git reset --hard HEAD
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git rm: </b> removes files from the index and the working directory.
+                        <br /> <br />
+                        <code>
+                            git rm [filename]
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git stash: </b> temporarily saves changes that are not ready to be committed. So you can go back to the project later.
+                        <br /> <br />
+                        <code>
+                            git stash
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git show: </b> used to view information about every git object
+                        <br /> <br />
+                        <code>
+                            git show
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git fetch: </b> allows users to fetch all objects from the remote repository that do not currently reside in the local working directory.
+                        <br /> <br />
+                        <code>
+                            git fetch origin
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git ls-tree: </b> allows you to view a tree object along with the name, the mode of each item and the blob SHA1 value. Say you want to view the HEAD: 
+                        <br /> <br />
+                        <code>
+                            git ls-tree HEAD
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git cat-file: </b> view the type and size information of a repository object. Use the -p option along with the object's SHA1 value to view information of a specific object
+                        <br /> <br />
+                        <code>
+                            git cat-file -p [SHA1 value]
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git grep: </b> lets users search through committed trees, working directory and staging area for specific phrases and words. Example: to search for the word "aloha"
+                        <br /> <br />
+                        <code>
+                            git grep 'aloha'
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>gitk: </b> shows the graphical interface for a local repository
+                        <br /> <br />
+                        <code>
+                            gitk
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git instaweb: </b> allows you to browse your local repository in the git-web interface. Example: 
+                        <br /> <br />
+                        <code>
+                            git instaweb --httpd=webrick
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git gc: </b> will clean unecessary files and optimize local repository.
+                        <br /> <br />
+                        <code>
+                            git gc
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git archive: </b> lets users create a zip/tar file containing the constituents of a single repository tree. Example
+                        <br /> <br />
+                        <code>
+                            git archive --format=tar master
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git prune: </b> deletes objects that do not have any incoming pointers.
+                        <br /> <br />
+                        <code>
+                            git prune
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git fsck: </b> performs an integrity check of the git sile system and indentifies any corrupted objects.
+                        <br /> <br />
+                        <code>
+                            git fsck
+                        </code>
+                        <br /><br />
+                    </li>
+
+                    <li>
+                        <b>git rebase: </b> used to apply certain changes from one branch to another. Example: 
+                        <br /> <br />
+                        <code>
+                            git rebase master
+                        </code>
+                        <br /><br />
+                    </li>
+
+                </ol>
+            </section>
+        </div>
+    </main>
         <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 </html>
